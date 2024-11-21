@@ -17,7 +17,7 @@ def inventory_cost(Q, R, demand, holding_cost, ordering_cost, shortage_cost):
 
 # PSO parameters
 NUM_PARTICLES = 30  # Number of particles in the swarm
-MAX_ITERATIONS = 100  # Number of iterations
+MAX_ITERATIONS = 45  # Number of iterations
 W = 0.5  # Inertia weight
 C1 = 1.5  # Cognitive constant
 C2 = 1.5  # Social constant
@@ -89,34 +89,3 @@ for iteration in range(MAX_ITERATIONS):
 print(f"Optimal Order Quantity (Q): {gbest[0]:.2f}")
 print(f"Optimal Reorder Point (R): {gbest[1]:.2f}")
 print(f"Minimum Cost: {gbest_cost:.2f}")
-
-
-
-
-'''
-Inventory Cost Function:
-
-Computes the total cost based on 
-𝑄
-Q (order quantity) and 
-𝑅
-R (reorder point).
-Includes holding, ordering, and shortage costs.
-PSO Initialization:
-
-Randomly initializes particles (candidate solutions) and their velocities.
-Initializes personal and global best solutions.
-PSO Main Loop:
-
-Updates particle velocities based on:
-Inertia (current velocity),
-Cognitive component (distance to personal best),
-Social component (distance to global best).
-Updates particle positions and enforces bounds.
-Fitness Evaluation:
-
-Calculates the cost for each particle and updates personal and global bests.
-Output:
-
-Prints the best order quantity, reorder point, and minimum cost.
-'''
