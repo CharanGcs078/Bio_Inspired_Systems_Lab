@@ -1,17 +1,23 @@
 import random
 
-# Network graph (edges with weights)
+# Updated Network graph (edges with weights)
 network = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
+    'A': {'B': 1, 'C': 4, 'E': 7},
+    'B': {'A': 1, 'C': 2, 'D': 5, 'F': 8},
+    'C': {'A': 4, 'B': 2, 'D': 1, 'G': 6},
+    'D': {'B': 5, 'C': 1, 'H': 3},
+    'E': {'A': 7, 'F': 2, 'I': 4},
+    'F': {'B': 8, 'E': 2, 'G': 3, 'J': 6},
+    'G': {'C': 6, 'F': 3, 'H': 2},
+    'H': {'D': 3, 'G': 2, 'J': 5},
+    'I': {'E': 4, 'J': 3},
+    'J': {'F': 6, 'H': 5, 'I': 3}
 }
 
 # Genetic Algorithm Parameters
-POPULATION_SIZE = 6
-GENERATIONS = 10
-MUTATION_RATE = 0.2
+POPULATION_SIZE = 10
+GENERATIONS = 20
+MUTATION_RATE = 0.3
 
 # Fitness function: calculate the cost of a path
 def fitness(path):
@@ -78,35 +84,8 @@ def genetic_algorithm(start, end):
 
 # Example usage
 start_node = 'A'
-end_node = 'D'
+end_node = 'H'
+print("Start: ", start_node)
+print("End: ", end_node)
 best_path, best_cost = genetic_algorithm(start_node, end_node)
 print(f"Best path found: {best_path} with cost: {best_cost}")
-
-
-
-
-
-
-
-'''
-Network Graph:
-Represented as a dictionary where keys are nodes and values are neighbors with edge weights.
-
-Fitness Function:
-Calculates the total cost of a path. Invalid paths get a fitness of infinity to exclude them from selection.
-
-Population Initialization:
-Random paths are generated from the start node to the end node.
-
-Crossover and Mutation:
-Crossover: Combines two parent paths by slicing and merging.
-Mutation: Randomly alters a node in the path to introduce diversity.
-
-Selection and Evolution:
-The top 50% of the population (based on fitness) is selected for reproduction.
-New paths are created through crossover and mutation.
-
-Output:
-
-The algorithm outputs the best path and its cost after a fixed number of generations.
-'''
