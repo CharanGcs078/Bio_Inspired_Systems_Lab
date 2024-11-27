@@ -96,10 +96,10 @@ for iteration in range(max_iterations):
 
 # Output the best path
 best_path = sorted(population, key=fitness)[0]
-print("Best Path:", best_path)
+print(f"Best Path From {source} to {destination}: ", best_path)
 
 # Visualize the grid with the path
 visualized_grid = display_grid_with_path(grid, best_path)
-print("\nGrid with Best Path:")
+print("\nGrid showing the Best Path with stars representing the path and X representing obstacles:")
 for row in visualized_grid:
     print(' '.join(row))
