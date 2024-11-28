@@ -1,5 +1,5 @@
 import numpy as np
-
+print("CHARAN G 1BM22CS078")
 def initialize_grid(grid_size, max_demand):
     """Initialize the grid with random demands and initial allocations."""
     demand = np.random.randint(1, max_demand, (grid_size, grid_size))
@@ -59,6 +59,7 @@ for _ in range(iterations):
     print(f"Iteration Cost: {cost}")
 
 # Final Results
+
 print("\nFinal Demand:")
 print(demand)
 print("\nFinal Allocation:")
